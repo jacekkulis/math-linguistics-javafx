@@ -27,6 +27,7 @@ public class Automata implements IAutomata{
 
 	@Override
 	public boolean canStop() {
+		System.out.println("Automata is in final state: " + current.getId());
 		return this.current.isFinal();
 	}
 }
