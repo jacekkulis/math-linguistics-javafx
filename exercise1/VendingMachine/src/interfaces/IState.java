@@ -1,6 +1,3 @@
-/**
- * 
- */
 package interfaces;
 
 /**
@@ -8,8 +5,8 @@ package interfaces;
  *
  */
 public interface IState {
-	IState with(final ITransition transition);
-	IState transit(final int val);
+	IState addTransition(ITransition transition);
+	IState transition(int val);
 	boolean isFinal();
 	String getId();
 }

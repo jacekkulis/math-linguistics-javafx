@@ -8,6 +8,6 @@ package interfaces;
  *
  */
 public interface ITransition {
-	boolean isPossible(int val);
-	IState state();
+	boolean compliesRule(int val);
+	IState getState();
 }

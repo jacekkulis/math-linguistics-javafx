@@ -12,22 +12,22 @@ import interfaces.ITransition;
  */
 public class Transition implements ITransition {
 	private int rule;
-	private IState next;
+	private IState nextState;
 	
 	
 	public Transition(int rule, IState next) {
 		this.rule = rule;
-		this.next = next;
+		this.nextState = next;
 	}
 
 	@Override
-	public boolean isPossible(int val) {
+	public boolean compliesRule(int val) {
 		return this.rule == val;
 	}
 	
 	@Override
-	public IState state() {
-		return this.next;
+	public IState getState() {
+		return this.nextState;
 	}
 
 }

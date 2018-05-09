@@ -9,5 +9,5 @@ package interfaces;
  */
 public interface IAutomata {
 	IAutomata switchState(int val);
-	boolean canStop();
+	boolean isFinal();
 }

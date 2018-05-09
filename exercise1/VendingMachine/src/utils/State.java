@@ -35,16 +35,19 @@ public class State implements IState{
 
 
 	@Override
-	public IState with(ITransition transition) {
+	public IState addTransition(ITransition transition) {
 		this.transitions.add(transition);
 		return this;
 	}
 
 
 	@Override
-	public IState transit(int val) {
-		return transitions.stream().filter(t -> t.isPossible(val)).map(ITransition::state).findAny()
-				.orElseThrow(() -> new IllegalArgumentException("Input not accepted: " + val));
+	public IState transition(int ruleValue) {
+		return transitions.stream()
+				.filter(state -> state.compliesRule(ruleValue))
+				.map(ITransition::getState)
+				.findAny()
+				.orElse(null);
 	}
 
 	@Override
