@@ -5,7 +5,6 @@ package utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import interfaces.IState;
 import interfaces.ITransition;
 
@@ -20,19 +19,16 @@ public class State implements IState{
 	private boolean isFinal;
 	
 	public State(String id) {
-		super();
 		this.transitions = new ArrayList<>();
 		this.setFinal(false);
 		this.id = id;
 	}
 	
 	public State(String id, boolean isFinal) {
-		super();
 		this.transitions = new ArrayList<>();
 		this.setFinal(isFinal);
 		this.id = id;
 	}
-
 
 	@Override
 	public IState addTransition(ITransition transition) {
