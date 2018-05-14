@@ -17,4 +17,6 @@ public interface IAutomata {
 	
 	void setProduct(Product product);
 	Product getProduct();
+	
+	IState getCurrentState();
 }

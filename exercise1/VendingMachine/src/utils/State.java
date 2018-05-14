@@ -17,6 +17,7 @@ public class State implements IState{
 	private String id;
 	private List<ITransition> transitions;
 	private boolean isFinal;
+	private int change;
 	
 	public State(String id) {
 		this.transitions = new ArrayList<>();
@@ -57,5 +58,15 @@ public class State implements IState{
 
 	public String getId() {
 		return id;
+	}
+
+	@Override
+	public int getChange() {
+		return change;
+	}
+
+	@Override
+	public void setChange(int change) {
+		this.change = change;
 	}
 }

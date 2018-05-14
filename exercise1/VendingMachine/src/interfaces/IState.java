@@ -10,4 +10,7 @@ public interface IState {
 	boolean isFinal();
 	void setFinal(boolean isFinal);
 	String getId();
+	
+	int getChange();
+	void setChange(int change);
 }

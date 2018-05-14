@@ -36,6 +36,10 @@ public class Automata implements IAutomata {
 		IState q6 = new State("q6", false);
 		IState q7 = new State("q7", false);
 		IState q8 = new State("q8", false);
+		IState q9 = new State("q9", false);
+		IState q10 = new State("q10", false);
+		IState q11 = new State("q11", false);
+		IState q12 = new State("q12", false);
 		
 		if (this.product instanceof Tea) {
 			System.out.println("It is tea");
@@ -43,11 +47,25 @@ public class Automata implements IAutomata {
 			q6.setFinal(true);
 			q7.setFinal(true);
 			q8.setFinal(true);
+			q9.setFinal(true);
+			
+			q6.setChange(1);
+			q7.setChange(2);
+			q8.setChange(3);
+			q9.setChange(4);
 		}
 		else if (this.product instanceof Coffee) {
 			System.out.println("It is coffee");
 			q7.setFinal(true);
 			q8.setFinal(true);
+			q9.setFinal(true);
+			q10.setFinal(true);
+			q11.setFinal(true);
+			
+			q8.setChange(1);
+			q9.setChange(2);
+			q10.setChange(3);
+			q11.setChange(4);
 		}
 
 		q0.addTransition(new Transition(1, q1));
@@ -68,23 +86,39 @@ public class Automata implements IAutomata {
 
 		q4.addTransition(new Transition(1, q5));
 		q4.addTransition(new Transition(2, q6));
-		q4.addTransition(new Transition(5, q8));
+		q4.addTransition(new Transition(5, q9));
 
 		q5.addTransition(new Transition(1, q6));
 		q5.addTransition(new Transition(2, q7));
-		q5.addTransition(new Transition(5, q8));
+		q5.addTransition(new Transition(5, q10));
 
 		q6.addTransition(new Transition(1, q7));
 		q6.addTransition(new Transition(2, q8));
-		q6.addTransition(new Transition(5, q8));
+		q6.addTransition(new Transition(5, q11));
 
-		q7.addTransition(new Transition(1, q8));
-		q7.addTransition(new Transition(2, q8));
-		q7.addTransition(new Transition(5, q8));
+		q7.addTransition(new Transition(1, q12));
+		q7.addTransition(new Transition(2, q12));
+		q7.addTransition(new Transition(5, q12));
 
-		q8.addTransition(new Transition(1, q8));
-		q8.addTransition(new Transition(2, q8));
-		q8.addTransition(new Transition(5, q8));
+		q8.addTransition(new Transition(1, q12));
+		q8.addTransition(new Transition(2, q12));
+		q8.addTransition(new Transition(5, q12));
+		
+		q9.addTransition(new Transition(1, q12));
+		q9.addTransition(new Transition(2, q12));
+		q9.addTransition(new Transition(5, q12));
+		
+		q10.addTransition(new Transition(1, q12));
+		q10.addTransition(new Transition(2, q12));
+		q10.addTransition(new Transition(5, q12));
+		
+		q11.addTransition(new Transition(1, q12));
+		q11.addTransition(new Transition(2, q12));
+		q11.addTransition(new Transition(5, q12));
+		
+		q12.addTransition(new Transition(1, q12));
+		q12.addTransition(new Transition(2, q12));
+		q12.addTransition(new Transition(5, q12));
 
 		this.current = q0;
 	}
@@ -100,19 +134,12 @@ public class Automata implements IAutomata {
 	public boolean isFinal() {
 		if (this.current.isFinal()) {
 			System.out.println("Automata is in final state: " + current.getId());
+			
 			return true;
 		}
 		else {
 			return false;
 		}
-	}
-
-	public IState getCurrent() {
-		return current;
-	}
-
-	public void setCurrent(IState current) {
-		this.current = current;
 	}
 
 	public Product getProduct() {
@@ -121,5 +148,11 @@ public class Automata implements IAutomata {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+
+	@Override
+	public IState getCurrentState() {
+		return current;
 	}
 }
