@@ -8,6 +8,8 @@ package interfaces;
  *
  */
 public interface ITransition {
-	boolean compliesRule(String val);
-	IState getState();
+	boolean hasRule(String val);
+	IState getStartState();
+	IState getGetEndState();
+	String getRule();
 }

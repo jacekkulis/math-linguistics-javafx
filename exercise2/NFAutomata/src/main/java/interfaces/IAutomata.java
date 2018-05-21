@@ -3,16 +3,17 @@
  */
 package interfaces;
 
+import java.util.List;
+
 /**
  * @author Jacek
  *
  */
 public interface IAutomata {
 	void buildAutomata();
-	
-	IAutomata switchState(String val);
-	boolean isFinal();
+	List<ITransition> findAllTransitions(IState current, String ruleVal);
 
-	
-	IState  getCurrentState();
+    boolean checkIfAccepts(IState currentState, String input, StringBuilder steps);
+
+	void accepts(String input);
 }

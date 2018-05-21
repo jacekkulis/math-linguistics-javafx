@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package utils;
 
@@ -11,23 +11,39 @@ import interfaces.ITransition;
  *
  */
 public class Transition implements ITransition {
-	private String rule;
-	private IState nextState;
-	
-	
-	public Transition(String rule, IState next) {
-		this.rule = rule;
-		this.nextState = next;
-	}
+    private String rule;
+    private IState startState;
+    private IState endState;
 
-	@Override
-	public boolean compliesRule(String val) {
-		return this.rule.equals(val);
-	}
-	
-	@Override
-	public IState getState() {
-		return this.nextState;
-	}
 
+    public Transition(IState start, String rule, IState end) {
+        this.rule = rule;
+        this.startState = start;
+        this.endState = end;
+    }
+
+    @Override
+    public boolean hasRule(String val) {
+        return this.rule.equals(val);
+    }
+
+    @Override
+    public IState getStartState(){
+        return this.startState;
+    }
+
+    @Override
+    public IState getGetEndState() {
+        return this.endState;
+    }
+
+    @Override
+    public String toString() {
+        return "{" + startState.getId() + "}[rule=" + rule + "]->{" +  endState.getId() + "}";
+    }
+
+    @Override
+    public String getRule() {
+        return this.rule;
+    }
 }

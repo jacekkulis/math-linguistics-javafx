@@ -5,6 +5,8 @@ import interfaces.ITransition;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author Jacek
@@ -13,35 +15,16 @@ import java.util.List;
 public class State implements IState {
 
 	private String id;
-	private List<ITransition> transitions;
 	private boolean isFinal;
 	
 	public State(String id) {
-		this.transitions = new ArrayList<>();
 		this.setFinal(false);
 		this.id = id;
 	}
 	
 	public State(String id, boolean isFinal) {
-		this.transitions = new ArrayList<>();
 		this.setFinal(isFinal);
 		this.id = id;
-	}
-
-	@Override
-	public IState addTransition(ITransition transition) {
-		this.transitions.add(transition);
-		return this;
-	}
-
-
-	@Override
-	public IState transition(String ruleValue) {
-		return transitions.stream()
-                .filter(state -> state.compliesRule(ruleValue))
-                .map(ITransition::getState)
-                .findAny()
-                .orElse(this);
 	}
 
 	@Override
@@ -56,4 +39,17 @@ public class State implements IState {
 	public String getId() {
 		return id;
 	}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        State state = (State) o;
+        return Objects.equals(id, state.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
