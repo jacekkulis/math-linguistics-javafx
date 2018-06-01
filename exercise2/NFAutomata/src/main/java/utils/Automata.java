@@ -56,11 +56,11 @@ public class Automata implements IAutomata {
         Q.add(QL);
         Q.add(QC);
 
-
-
 		//starting transitions
         transitons.add(new Transition(S, "0", q0));
+        //transitons.add(new Transition(S, "0", S));
         transitons.add(new Transition(S, "1", q1));
+        //transitons.add(new Transition(S, "1", S));
         transitons.add(new Transition(S, "2", q2));
         transitons.add(new Transition(S, "3", q3));
         transitons.add(new Transition(S, "4", q4));
@@ -161,17 +161,19 @@ public class Automata implements IAutomata {
 
     @Override
     public void accepts(String input) {
+        System.out.println("Checking input: " + input);
         if (checkIfAccepts(S, input, new StringBuilder())){
             return;
         }
 
-        System.out.println("Input is not accepted.");
+        System.out.println("Input is not accepted.\n\n");
     }
 
     @Override
 	public boolean checkIfAccepts(IState currentState, String input, StringBuilder steps) {
 	    if (input.length() > 0){
             List<ITransition> transitionList = findAllTransitions(currentState, String.valueOf(input.charAt(0)));
+            System.out.println("Possible paths: ");
             transitionList.stream().forEach(System.out::println);
             for(ITransition t : transitionList){
                 StringBuilder currentSteps = new StringBuilder(steps.toString() + " " + t);
@@ -184,7 +186,12 @@ public class Automata implements IAutomata {
         }
 
         if(currentState.isFinal()){
-            System.out.println("Accepted input. Current state: " + currentState.getId() + ", full path: " + steps.toString());
+	        if (currentState.getId().equals("QC")){
+                System.out.println("Accepted input [digits]. Current state: " + currentState.   getId() + ", full path: " + steps.toString() + "\n\n");
+            } else if (currentState.getId().equals("QL")){
+                System.out.println("Accepted input [letters]. Current state: " + currentState.getId() + ", full path: " + steps.toString() + "\n\n");
+            }
+
 	        return true;
         }
         else {

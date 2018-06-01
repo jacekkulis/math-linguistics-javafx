@@ -1,0 +1,3 @@
+
+-dobra - liczba ujemna (minus to nie operator tylko znak liczby)
+
