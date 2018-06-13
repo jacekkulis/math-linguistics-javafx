@@ -1,0 +1,2 @@
+-implementacja w postaci analizatora skladniowego
+-kazda metoda rekurencyjnie wywolywana
