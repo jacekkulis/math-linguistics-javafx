@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iis.app.Controller">
+   <children>
+      <TextField fx:id="inputExpr" layoutX="21.0" layoutY="22.0" prefHeight="25.0" prefWidth="200.0" promptText="insert expr" />
+      <Button fx:id="computeBtn" layoutX="235.0" layoutY="22.0" mnemonicParsing="false" onAction="#computeAction" prefHeight="25.0" prefWidth="86.0" text="Compute" />
+      <TextArea fx:id="outputField" editable="false" layoutX="21.0" layoutY="66.0" prefHeight="120.0" prefWidth="300.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextArea>
+   </children>
+</AnchorPane>

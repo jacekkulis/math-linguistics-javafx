@@ -1,0 +1,4 @@
+-zaprojektowanie wlasnej gramatyki, sprwadzajacej wyrazenia regularne
+-z produkcji na notacje NPNF
+
+-wyrazenie reg. wyprowadzone z gramatyki
