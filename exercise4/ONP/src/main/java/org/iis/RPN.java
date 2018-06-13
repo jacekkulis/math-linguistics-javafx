@@ -1,12 +1,8 @@
 package org.iis;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RPN implements IRPN {
@@ -48,6 +44,10 @@ public class RPN implements IRPN {
         List<String> expr = expression.chars().mapToObj(c -> String.valueOf((char) c)).collect(Collectors.toList());
         checkMultiplicationBehindBracket(expr);
 
+        if (expr.contains("[")) {
+            expr = checkNegativeNumbers(expr);
+        }
+
         for (String token : expr) {
             if (token.equals(LEFT_BRACKET)) {
                 stack.push(LEFT_BRACKET);
@@ -69,8 +69,18 @@ public class RPN implements IRPN {
         return result.toString();
     }
 
-    private void checkNegativeNumbers(List<String> expr) {
-        StringUtils.substringBetween("(", ")");
+    private List<String> checkNegativeNumbers(List<String> expr) {
+        List<String> newList = new ArrayList<>();
+
+        for (int i = 0; i < expr.size(); i++) {
+            if (expr.get(i).equals("[")) {
+                newList.add(expr.get(i + 1) + expr.get(i + 2));
+                i += 3;
+            } else {
+                newList.add(expr.get(i));
+            }
+        }
+        return newList;
     }
 
     private void checkMultiplicationBehindBracket(List<String> expr) {
@@ -96,7 +106,11 @@ public class RPN implements IRPN {
     }
 
     private boolean isNumberOrLetter(String token) {
-        return NumberUtils.isCreatable(token) || Character.isLetter(token.charAt(0));
+        if (token.length() == 2) {
+            return NumberUtils.isCreatable(token) || Character.isLetter(token.charAt(1));
+        } else {
+            return NumberUtils.isCreatable(token) || Character.isLetter(token.charAt(0));
+        }
     }
 
     private String getRestFromTheStack() {

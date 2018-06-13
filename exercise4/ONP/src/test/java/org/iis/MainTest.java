@@ -10,8 +10,9 @@ public class MainTest {
     @Test
     public void shouldReturnRNPStringOfComputedExpression() {
         Assert.assertEquals("25*1+2/", rpn.compute("((2*5+1)/2)"));
+        Assert.assertEquals("5-2*", rpn.compute("5*[-2]"));
+        Assert.assertEquals("22/2*", rpn.compute("2/2*2"));
         Assert.assertEquals("xy+", rpn.compute("x+y"));
-        Assert.assertEquals("xy-z+", rpn.compute("(x-y)+z"));
         Assert.assertEquals("xy-z+", rpn.compute("(x-y)+z"));
         Assert.assertEquals("xyz+-", rpn.compute("x-(y+z)"));
         Assert.assertEquals("xyz+*w*", rpn.compute("x*(y+z)*w"));
@@ -28,6 +29,8 @@ public class MainTest {
 
     @Test
     public void acceptNegativeNumbers() {
-        Assert.assertEquals("x-y+", rpn.compute("x+(-y)"));
+        Assert.assertEquals("x-y+", rpn.compute("x+[-y]"));
+        Assert.assertEquals("xy--z+", rpn.compute("(x-y)+[-z]"));
+        Assert.assertEquals("2225*1+*-2/*", rpn.compute("2(2(2*5+1)/[-2])"));
     }
 }
