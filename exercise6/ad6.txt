@@ -1,2 +1,29 @@
 -implementacja w postaci analizatora skladniowego
 -kazda metoda rekurencyjnie wywolywana
+
+wczytywany 1 symbol od lewej strony, stosowana lewostronna rekurencja-podstawienie kolejnych produkcji do innych produkcji w lewa strone,
+ az do uzyskania terminala koncowego
+
+First(O)= {*,:,+,-,^}
+First(C)={0..9}
+First(L)=  First(C)= {0..9}
+First(L’)= First(L)=  First(C)= {0..9}
+First(R)= First(L)=  First(C)= {0..9}
+First(R’)={.}
+First(P)={(} U First(R)= First(L)= First(C)= {0..9} U {(}
+First(W)=First(P)= {0..9} U {(}
+First(W’)=First(O)= {*,:,+,-,^}
+First(Z)= First(W)=First(P)= {0..9} U {(}
+First(S)= First(W)=First(P)= {0..9} U {(}
+------------------------------------------------------------------------------------
+Follow(O)= First(W)= {0..9} U {(}
+Follow(C)=First(L’)= {0..9}
+Follow(L)=First(R’)U Follow(R’)U Follow(L)= {.} U {*,:,+,-,^} 
+Follow(L’)= Follow(L)= {.} U {*,:,+,-,^}
+Follow(R)=Follow(P)= First(W’)= {*,:,+,-,^}
+Follow(R’)=Follow(R)= Follow(P)= First(W’)= {*,:,+,-,^}
+Follow(P)=First(W’)= {*,:,+,-,^}
+Follow(W)={;,)}
+Follow(W’)=Follow(W)={;,)}
+Follow(Z)=Follow(S)=$
+Follow(S)=$
