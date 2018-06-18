@@ -5,16 +5,14 @@ import java.util.List;
 import java.util.Stack;
 
 class Parser {
-    //input
     private String input = "";
     private int indexOfInput = -1;
 
-    private List<Production> productionList;
-    private List<Terminal> terminalList;
+    private List<Symbol> productionList;
+    private List<Symbol> terminalList;
 
-    //Stack
-    private Stack<String> stack = new Stack<>();
-    //Table of rules
+    private Stack<Symbol> stack = new Stack<>();
+
     private String[][] table =
             {
                     /*S*/
@@ -41,11 +39,6 @@ class Parser {
                     {null, null, null, null, null, null, null, null, null, null, "*", "/", "+", "-", "^", null, null, null, null}
             };
 
-
-    String[] nonTerminals = {"S", "Z", "W", "w", "P", "R", "r", "L", "l", "C", "O"};
-    String[] terminals = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "/", "+", "-", "^", "(", ")", ";", "."};
-
-
     public Parser(String in) {
         this.input = in;
         this.input += "$";
@@ -71,7 +64,7 @@ class Parser {
 
     private void initTerminals() {
         terminalList = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 10; i++) {
             terminalList.add(new Terminal(String.valueOf(i)));
         }
         terminalList.add(new Terminal("*"));
@@ -89,114 +82,88 @@ class Parser {
         for (int i = rule.length() - 1; i >= 0; i--) {
             char ch = rule.charAt(i);
             String str = String.valueOf(ch);
-            stack.push(str);
+            stack.push(new Production(str));
         }
     }
 
-    //algorithm
     public void algorithm() {
-        stack.push(input.charAt(0) + "");
-        stack.push("S");
-        //Read one token from input
+        stack.push(new Terminal(input.charAt(0) + ""));
+        stack.push(new Production("S"));
 
-        String token = read();
-        String top = null;
-
+        Symbol token = read();
+        Symbol top = null;
 
         do {
             top = stack.pop();
-            System.out.println("TOP: " + top);
+            //System.out.println("TOP: " + top);
             //if top is non-terminal
-            if (isNonTerminal(top)) {
+            if (isProduction(top)) {
                 String rule = this.getRule(top, token);
-                System.out.println("RULE: " + rule);
+                //System.out.println("RULE: " + rule);
                 this.pushRule(rule);
             } else if (isTerminal(top)) {
                 if (!top.equals(token)) {
-                    error("this token is not corrent , By Grammer rule . Token : (" + token + ")");
+                    throw new IllegalStateException(String.format("Token %s is illegal. Input is not accepted.", token));
                 } else {
-                    System.out.println("Matching: Terminal :( " + token + " )");
+                    System.out.println("Terminal " + token + " is correct.");
                     token = read();
                 }
             } else {
-                error("Never Happens , Because top : ( " + top + " )");
+                throw new IllegalStateException("Something is wrong.");
             }
 
-
-            if (token.equals("$")) {
+            if (token.equals(new Terminal("$"))) {
                 break;
             }
 
         } while (true);//out of the loop when $
 
         //accept
-        if (token.equals("$")) {
-            System.out.println("Input is Accepted by LL1");
+        if (token.equals(new Terminal("$"))) {
+            System.out.println("Success! This input is accepted.");
         } else {
-            System.out.println("Input is not Accepted by LL1");
+            System.out.println("Fail! This input is rejected.");
         }
     }
 
-    private boolean isTerminal(String s) {
-        for (int i = 0; i < this.terminals.length; i++) {
-            if (s.equals(this.terminals[i])) {
-                return true;
-            }
-
-        }
-        return false;
+    private boolean isTerminal(Symbol e) {
+        return terminalList.contains(e);
     }
 
-    private boolean isNonTerminal(String s) {
-        for (int i = 0; i < this.nonTerminals.length; i++) {
-            if (s.equals(this.nonTerminals[i])) {
-                return true;
-            }
-        }
-        return false;
+    private boolean isProduction(Symbol e) {
+        return productionList.contains(e);
     }
 
-    private String read() {
+    private Symbol read() {
         indexOfInput++;
-        char ch = this.input.charAt(indexOfInput);
-        String str = String.valueOf(ch);
-
-        return str;
+        return new Terminal(String.valueOf(input.charAt(indexOfInput)));
     }
 
-    private void error(String message) {
-        System.out.println(message);
-        throw new IllegalStateException(message);
-    }
-
-    public String getRule(String non, String term) {
-
-        int row = getnonTermIndex(non);
-        int column = getTermIndex(term);
-        String rule = this.table[row][column];
+    public String getRule(Symbol non, Symbol term) {
+        int row = getProductionIndex(non);
+        //System.out.println("row " + row);
+        int column = getTerminatorIndex(term);
+        //System.out.println("column " + column);
+        String rule = table[row][column];
         if (rule == null) {
-            error("There is no Rule by this , Non-Terminal(" + non + ") ,Terminal(" + term + ") ");
+            throw new IllegalStateException("There is no rule for production: " + non + ", and terminal: " + term);
         }
         return rule;
     }
 
-    private int getnonTermIndex(String non) {
-        for (int i = 0; i < this.nonTerminals.length; i++) {
-            if (non.equals(this.nonTerminals[i])) {
-                return i;
-            }
-        }
-        error(non + " is not Production");
-        return -1;
+    private int getProductionIndex(Symbol non) {
+        //System.out.println("getProductionIndex: " + non);
+        if (productionList.contains(non))
+            return productionList.indexOf(non);
+        else
+            throw new IllegalStateException();
     }
 
-    private int getTermIndex(String term) {
-        for (int i = 0; i < this.terminals.length; i++) {
-            if (term.equals(this.terminals[i])) {
-                return i;
-            }
-        }
-        error(term + " is not Terminal");
-        return -1;
+    private int getTerminatorIndex(Symbol term) {
+        //System.out.println("getProductionIndex: " + term);
+        if (terminalList.contains(term))
+            return terminalList.indexOf(term);
+        else
+            throw new IllegalStateException();
     }
 }
