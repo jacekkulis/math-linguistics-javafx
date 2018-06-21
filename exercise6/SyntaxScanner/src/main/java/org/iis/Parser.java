@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 class Parser {
-    private String input = "";
+    private String input;
     private int indexOfInput = -1;
 
     private List<Symbol> productionList;
@@ -86,21 +86,19 @@ class Parser {
         }
     }
 
-    public void algorithm() {
+    public void parse() {
         stack.push(new Terminal(input.charAt(0) + ""));
         stack.push(new Production("S"));
 
         Symbol token = read();
-        Symbol top = null;
+        Symbol top;
 
         do {
             top = stack.pop();
-            //System.out.println("TOP: " + top);
-            //if top is non-terminal
+
             if (isProduction(top)) {
-                String rule = this.getRule(top, token);
-                //System.out.println("RULE: " + rule);
-                this.pushRule(rule);
+                String rule = getRule(top, token);
+                pushRule(rule);
             } else if (isTerminal(top)) {
                 if (!top.equals(token)) {
                     throw new IllegalStateException(String.format("Token %s is illegal. Input is not accepted.", token));
@@ -116,9 +114,8 @@ class Parser {
                 break;
             }
 
-        } while (true);//out of the loop when $
+        } while (true);
 
-        //accept
         if (token.equals(new Terminal("$"))) {
             System.out.println("Success! This input is accepted.");
         } else {
@@ -141,9 +138,7 @@ class Parser {
 
     public String getRule(Symbol non, Symbol term) {
         int row = getProductionIndex(non);
-        //System.out.println("row " + row);
         int column = getTerminatorIndex(term);
-        //System.out.println("column " + column);
         String rule = table[row][column];
         if (rule == null) {
             throw new IllegalStateException("There is no rule for production: " + non + ", and terminal: " + term);
@@ -152,7 +147,6 @@ class Parser {
     }
 
     private int getProductionIndex(Symbol non) {
-        //System.out.println("getProductionIndex: " + non);
         if (productionList.contains(non))
             return productionList.indexOf(non);
         else
@@ -160,7 +154,6 @@ class Parser {
     }
 
     private int getTerminatorIndex(Symbol term) {
-        //System.out.println("getProductionIndex: " + term);
         if (terminalList.contains(term))
             return terminalList.indexOf(term);
         else
