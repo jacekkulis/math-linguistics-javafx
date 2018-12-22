@@ -18,32 +18,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="136">
+              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="150" column="46" selection-start-line="150" selection-start-column="46" selection-end-line="150" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4959#4960#0" expanded="true" />
+                <element signature="e#5006#5007#0" expanded="true" />
+                <element signature="e#5052#5053#0" expanded="true" />
+                <element signature="e#5101#5102#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,6 +58,7 @@
       <find>W'</find>
       <find>L</find>
       <find>L'</find>
+      <find>empty</find>
     </findStrings>
     <replaceStrings>
       <replace>l</replace>
@@ -93,13 +89,11 @@
         <option value="$PROJECT_DIR$/src/main/java/org/iis/someparser/ParserDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/NonTerminal.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Symbol.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Terminal.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Rule.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/exception/AnalyzerException.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/token/Token.java" />
         <option value="$PROJECT_DIR$/src/main/resources/grammar.txt" />
         <option value="$PROJECT_DIR$/src/test/java/org/iis/CFGTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/lexer/Lexer.java" />
         <option value="$PROJECT_DIR$/resources/script/Test.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/iis/parser/CFGTest.java" />
@@ -108,9 +102,12 @@
         <option value="$PROJECT_DIR$/src/main/java/org/iis/Symbol.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/Production.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/Terminal.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/iis/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/iis/Parser.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Production.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Terminal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/iis/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java" />
       </list>
     </option>
   </component>
@@ -134,6 +131,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -172,6 +171,15 @@
               <item name="SyntaxScanner" type="b2602c69:ProjectViewProjectNode" />
               <item name="SyntaxScanner" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="iis" type="462c0819:PsiDirectoryNode" />
+              <item name="parser" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SyntaxScanner" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SyntaxScanner" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -185,8 +193,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,7 +340,13 @@
       <workItem from="1529247205032" duration="74000" />
       <workItem from="1529327775817" duration="4287000" />
       <workItem from="1529399974560" duration="955000" />
-      <workItem from="1529567740006" duration="914000" />
+      <workItem from="1529567740006" duration="2276000" />
+      <workItem from="1529572784016" duration="2036000" />
+      <workItem from="1529686179800" duration="41000" />
+      <workItem from="1529956128627" duration="44000" />
+      <workItem from="1530025981064" duration="229000" />
+      <workItem from="1530122502991" duration="98000" />
+      <workItem from="1530122627453" duration="13000" />
     </task>
     <servers />
   </component>
@@ -359,7 +371,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25361000" />
+    <option name="totallyTimeSpent" value="29184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -367,29 +379,29 @@
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32897604" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50692964" side_tool="true" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5079957" side_tool="true" visible="true" weight="0.32897604" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49307036" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49200428" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26812366" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28624734" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5501066" weight="0.39978212" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.54957354" weight="0.39978212" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32897604" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -408,7 +420,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Parser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
@@ -422,14 +434,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Parser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="42" selection-start-line="42" selection-end-line="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Parser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
@@ -449,7 +461,7 @@
     <entry file="file://$PROJECT_DIR$/../math_linguistics/exercise6/SyntaxScanner/src/main/java/org/iis/App.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Alphabet.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/LL.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Production.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Production.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Grammar.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/someparser/EpsilonRule.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/someparser/GrammarRule.java" />
@@ -476,55 +488,53 @@
     <entry file="file://$PROJECT_DIR$/resources/script/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/util/FileUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/org/iis/parser/CFGTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Symbol.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/iis/AppTest.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="289">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Production.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Production.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="187">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Terminal.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Terminal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Symbol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="136">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/iis/AppTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/parser/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/iis/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        <state relative-caret-position="534">
+          <caret line="150" column="46" selection-start-line="150" selection-start-column="46" selection-end-line="150" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4959#4960#0" expanded="true" />
+            <element signature="e#5006#5007#0" expanded="true" />
+            <element signature="e#5052#5053#0" expanded="true" />
+            <element signature="e#5101#5102#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
         </state>
       </provider>
     </entry>

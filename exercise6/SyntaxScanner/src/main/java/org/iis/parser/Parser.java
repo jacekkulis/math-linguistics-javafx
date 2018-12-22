@@ -1,10 +1,10 @@
-package org.iis;
+package org.iis.parser;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-class Parser {
+public class Parser {
     private String input;
     private int indexOfInput = -1;
 
@@ -95,9 +95,11 @@ class Parser {
 
         do {
             top = stack.pop();
+            //System.out.println("Top from stack: " + top);
 
             if (isProduction(top)) {
                 String rule = getRule(top, token);
+                //System.out.println("Rule: " + rule);
                 pushRule(rule);
             } else if (isTerminal(top)) {
                 if (!top.equals(token)) {
@@ -110,11 +112,7 @@ class Parser {
                 throw new IllegalStateException("Something is wrong.");
             }
 
-            if (token.equals(new Terminal("$"))) {
-                break;
-            }
-
-        } while (true);
+        } while (!token.equals(new Terminal("$")));
 
         if (token.equals(new Terminal("$"))) {
             System.out.println("Success! This input is accepted.");

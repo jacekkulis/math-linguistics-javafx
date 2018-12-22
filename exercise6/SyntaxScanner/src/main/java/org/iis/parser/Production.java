@@ -1,9 +1,9 @@
-package org.iis;
+package org.iis.parser;
 
 public class Production implements Symbol {
     private String symbol;
 
-    public Production(String symbol) {
+    Production(String symbol) {
         this.symbol = symbol;
     }
 

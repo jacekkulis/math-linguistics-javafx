@@ -1,9 +1,9 @@
-package org.iis;
+package org.iis.parser;
 
 public class Terminal implements Symbol {
     private String symbol;
 
-    public Terminal(String symbol) {
+    Terminal(String symbol) {
         this.symbol = symbol;
     }
 
