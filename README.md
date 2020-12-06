@@ -1,1 +1,3 @@
-# math_linguistics
+# Math Linguistics
+* Java
+* FXML
